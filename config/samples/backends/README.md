@@ -21,6 +21,7 @@ Currently available samples are:
 - NFS
 - CEPH + NFS
 - Cinder backend using LVM iSCSI
+- Cinder backend using LVM NVMe-TCP
 
 ## Ceph example
 
