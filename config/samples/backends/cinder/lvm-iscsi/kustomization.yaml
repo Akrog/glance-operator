@@ -1,0 +1,14 @@
+# This sample requires an LVM VG with the name of `cinder-volumes` to exist on the OpenShift node where cinder-volume runs
+# It also requires that iscsid and multpathd are running on the host.
+# The correct way to configure and run the daemons is using `MachineConfig` as shown in `iscsid.yaml` and `multipathd.yaml`.
+# To create the LVM on CRC the sample also uses a `MachineConfig` using a systemd unit with file `lvm.yaml`
+#
+# ATTENTION: After applying this OpenShift nodes will reboot, because of the `MachineConfig` changes and will take a while to recover.
+resources:
+  # Secret used by the glance backend
+  - ../glance-common/glance-cinder-secret.yaml
+  # Whole OpenStack deployment using a Cinder iSCSI LVM backend
+  - https://github.com/openstack-k8s-operators/cinder-operator/tree/main/config/samples/backends/lvm/iscsi
+patches:
+  # The glance backend configuration
+  - ../glance-common/glance.yaml

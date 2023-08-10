@@ -20,6 +20,7 @@ Currently available samples are:
 - Ceph
 - NFS
 - CEPH + NFS
+- Cinder backend using LVM iSCSI
 
 ## Ceph example
 
