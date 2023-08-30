@@ -18,6 +18,7 @@ spec:
         rootwrap_config = /etc/glance/rootwrap.conf
         description = Default cinder backend
         cinder_catalog_info = volumev3::internalURL
+        cinder_use_multipath = true
       customServiceConfigSecrets:
         - osp-glance-cinder-secret
       databaseInstance: openstack
