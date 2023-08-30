@@ -6,10 +6,9 @@
 # ATTENTION: After applying this OpenShift nodes will reboot, because of the `MachineConfig` changes and will take a while to recover.
 
 resources:
-  # Secret used by the glance backend
-  - ../glance-common/glance-cinder-secret.yaml
   # Whole OpenStack deployment using a Cinder NVMe-TCP LVM backend
-  - https://github.com/openstack-k8s-operators/cinder-operator/tree/main/config/samples/backends/lvm/nvme-tcp
-patches:
-  # The glance backend configuration
-  - ../glance-common/glance.yaml
+  # - https://github.com/openstack-k8s-operators/cinder-operator/tree/main/config/samples/backends/lvm/nvme-tcp
+  # For testing we can use our own repo and branch instead
+  - https://github.com/Akrog/cinder-operator//config/samples/backends/lvm/nvme-tcp?ref=more-backend-samples
+components:
+  - ../glance-common
